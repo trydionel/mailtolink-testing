@@ -17,4 +17,10 @@ describe("mailtolink.me", function () {
       .should("be.visible")
       .and("contain", "mailto:jeff@cypress.io");
   });
+
+  it("should include the cc field in the mailto link", function () {
+    cy.contains("Cc:").click();
+    cy.get("#cc").type("niha@cypress.io");
+    cy.get(".output").should("be.visible").and("contain", "cc=niha@cypress.io");
+  });
 });
