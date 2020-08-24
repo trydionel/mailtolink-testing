@@ -26,7 +26,7 @@ describe("mailtolink.me", function () {
 
   it("should include the bcc field in the mailto link", function () {
     cy.contains("Bcc:").click();
-    cy.get("#cc").type("niha@cypress.io");
+    cy.get("#bcc").type("niha@cypress.io");
     cy.get(".output")
       .should("be.visible")
       .and("contain", "bcc=niha@cypress.io");
